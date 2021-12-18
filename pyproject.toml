@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "piicatcher_spacy"
+version = "0.1.0-dev3"
+description = "PIICatcher plugin that uses spacy to detect PII"
+authors = ["Tokern <piicatcher@tokern.io>"]
+license = "MIT License"
+classifiers = [
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Topic :: Database",
+        "Topic :: Software Development",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords=["pii","postgres","snowflake","redshift","athena"]
+readme="README.md"
+homepage="https://tokern.io/"
+repository="https://github.com/tokern/piicatcher_spacy/"
+
+[tool.poetry.dependencies]
+python = ">=3.6.2,<3.9"
+spacy = "^3.2.1"
+piicatcher = "^0.19.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+black = "^21.12b0"
+mypy = "^0.910"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+pre-commit = "^2.16.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."piicatcher_detectors"]
+spacy = "piicatcher_spacy.detectors:SpacyDetector"
