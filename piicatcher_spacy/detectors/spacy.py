@@ -24,7 +24,7 @@ class SpacyDetector(DatumDetector):
     }
     name = 'DatumSpacyDetector'
 
-    def __init__(self, model: str = "en_US_core_news_lg"):
+    def __init__(self, model: str = "en_core_web_md"):
         super(SpacyDetector, self).__init__()
 
         # Fixes a warning message from transformers that is pulled in via spacy
