@@ -1,0 +1,16 @@
+version: "3.6"
+services:
+  python:
+   container_name: python
+   entrypoint: pip install poetry==1.2.2 && sleep infinity
+   image: "python:3.8"
+   volumes:
+    - type: bind
+      source: ../../piicatcher_spacy
+      target: /data
+   networks:
+    - default
+
+networks:
+  default:
+    name: pynetwork
