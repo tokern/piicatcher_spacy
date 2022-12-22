@@ -1768,7 +1768,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=4.6)", "pytest-black (
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<=3.10.8"
-content-hash = "a54f42e7e5d8beba839592eca3adcba28ff882da95f39bac0a787b1124939b8c"
+content-hash = "0dcd5f8ebb600e9076b36cdd1dc57b9c4e4d8844c1e7a07453c6531de8aaad50"
 
 [metadata.files]
 alembic = [
