@@ -9,13 +9,13 @@ on:
 jobs:
   release:
     name: Create Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
         uses: actions/checkout@master
       - name: Build Changelog
         id: github_release
-        uses: mikepenz/release-changelog-builder-action@v1
+        uses: mikepenz/release-changelog-builder-action@v3.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Release
@@ -29,14 +29,16 @@ jobs:
           prerelease: false
   deploy:
     needs: release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
       with:
-        python-version: "3.8"
+        python-version: "3.9"
     - name: Install Python Poetry
-      uses: abatilo/actions-poetry@v2.1.4
+      uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: 1.2.2      
     - name: View poetry version
       run: poetry --version
     - name: Install dependencies
@@ -47,4 +49,4 @@ jobs:
         PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
         PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        poetry publish --build --username "${PYPI_USERNAME}" --password "${PYPI_PASSWORD}"
+        poetry publish --build --skip-existing --username "${PYPI_USERNAME}" --password "${PYPI_PASSWORD}"
