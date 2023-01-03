@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "piicatcher_spacy"
-version = "0.1.1"
+version = "0.1.2"
 description = "PIICatcher plugin that uses spacy to detect PII"
 authors = ["Tokern <piicatcher@tokern.io>"]
 license = "MIT License"
