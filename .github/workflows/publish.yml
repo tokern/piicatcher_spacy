@@ -49,4 +49,4 @@ jobs:
         PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
         PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        poetry publish --build --skip-existing --username "${PYPI_USERNAME}" --password "${PYPI_PASSWORD}"
+        poetry publish --build --username "${PYPI_USERNAME}" --password "${PYPI_PASSWORD}"
