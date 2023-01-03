@@ -1,0 +1,16 @@
+version: "3.6"
+services:
+  python:
+   container_name: python
+   entrypoint: sleep infinity
+   image: "python:3.10.8"
+   volumes:
+    - type: bind
+      source: ../../piicatcher_spacy
+      target: /data
+   networks:
+    - default
+
+networks:
+  default:
+    name: pynetwork
