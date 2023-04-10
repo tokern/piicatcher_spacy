@@ -100,6 +100,7 @@ class SpacyDetector(DatumDetector):
         return model in models
 
     def detect(self, column: CatColumn, datum: str) -> Optional[PiiType]:
+        # if datum can be a list, like in postgres arrays, recurse, otherwise we crash in language.py from spacy.
         if isinstance(datum, list):
             for d in datum:
                 result = self.detect(column, d)
